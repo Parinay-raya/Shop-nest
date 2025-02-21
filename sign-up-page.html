@@ -68,7 +68,7 @@
                     <a href="features.html">Electrical Appliances</a>
 
                     <div class="drobdwon">
-                        <ul><li><a href="betuflpage.html">Tablets</a></li></ul>
+                        <ul><li><a href="smart-phones.html">Tablets</a></li></ul>
                         <ul><li><a href="#">Televisions</a></li></ul>
                         <ul><li><a href="#"> Smart Watches</a></li></ul>
                         <!-- <ul><li><a href="#">Windows</a></li></ul> -->
@@ -80,7 +80,7 @@
                 </li>
 
                 <li>
-                    <a href="contact.html">Mobile Phones & Accessories</a>
+                    <a href="smart-phones.html">Mobile Phones & Accessories</a>
                 </li>
                 <li><a href="index.html">Clothing</a></li>
 
@@ -104,8 +104,9 @@
 
         <div class="box-sign-up">
             <div class="signup">
+                <form id="signup-form" onsubmit="submitSignup(event)">
 
-                <form action="">
+                <!-- <form action=""> -->
 
                     <label for="email">Name</label>
                     <div class="inp">
@@ -171,7 +172,9 @@
             </div>
         </div>
     </div>
-
+    <button class="buyNow">Buy Now</button>
+    <div class="creatacountfast">Account Form</div>
+    
 
     <footer>
         <div class="contanier">
@@ -225,7 +228,7 @@
 
         <div class="bottom-footer">
             <div class="contanier">
-                <p>Copyright &copy; <span>Topico. </span>Powered by <span>Mahmoud Reda</span></p>
+                <p>Copyright &copy; <span>Shopnest. </span>Powered by <span>Parinay</span></p>
             <div class="payment">
                 <img src="img/payment-1.png" alt="">
                 <img src="img/payment-2.png" alt="">
@@ -241,5 +244,47 @@
 
     <!-- Linke File JS -->
     <script src="main.js"></script>
+
+
+    <script>
+
+//dom content loaded
+
+  document.addEventListener("DOMContentLoaded", function () {
+      let btnbuyNowF = document.querySelector('.buyNow');
+      let divcretAcBuyF = document.querySelector('.creatacountfast');
+
+      if (btnbuyNowF && divcretAcBuyF) {
+          btnbuyNowF.onclick = () => {
+              divcretAcBuyF.classList.toggle('active');
+          };
+      } else {
+          console.error("Element(s) not found: Check .buyNow and .creatacountfast classes.");
+      }
+  });
+
+
+const onSubmit=async (data) =>{
+  const userInfo={
+    fullname:data.fullname,
+    email:data.email,
+    password:data.password,
+}
+await axios.post("http://localhost:4001/user/signup",userInfo)
+.then((res)=>{
+  console.log(res.data)
+  if(res.data){
+    alert("signup successfully")
+  }
+})
+.catch((err)=>{
+  console.log(err)
+  alert("signup error:"+err)  
+})
+};
+
+    </script>
+
+
 </body>
 </html>
