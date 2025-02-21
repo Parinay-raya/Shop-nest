@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,83 +18,91 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="stylelogin.css">
 </head>
+
 <body class="menu-side-in-bag">
 
     <header>
 
         <div class="header-top">
             <div class="contanier">
-             <p>  "Welcome to Shopnest" </p>
-             <div class="link-top-heder">
-                 <a href="#">My Account</a>
-                 <a href="#">My Wishlist</a>
-                                     <a href="/sign-in-page.html">Sign In</a>
-                 <a href="#">Compare</a>
-             </div>
-         </div>
-           </div>
-
-           <div class="header-info">
-            <div class="contanier">
-                                <img class="logo" src="img/Logo-img.png" alt="">
-            
-            <div class="search-bar">
-                <form action="">
-                    <input type="search" placeholder=" Search for your request....">
-                    <button class="btn-srch">Search</button>
-                </form>
-            </div>
-            <div class="card">
-                <div class="price">
-                    <p>Cart :</p>
-                    <span>255.00 Pound</span>
+                <p> "Welcome to Shopnest" </p>
+                <div class="link-top-heder">
+                    <a href="#">My Account</a>
+                    <a href="#">My Wishlist</a>
+                    <a href="/sign-in-page.html">Sign In</a>
+                    <a href="#">Compare</a>
                 </div>
-                <a href="mycart.html"><i class="fa-solid fa-bag-shopping"></i> <span class="count-in-card">2</span></a>
-
-                
             </div>
+        </div>
+
+        <div class="header-info">
+            <div class="contanier">
+                <img class="logo" src="img/Logo-img.png" alt="">
+
+                <div class="search-bar">
+                    <form action="">
+                        <input type="search" placeholder=" Search for your request....">
+                        <button class="btn-srch">Search</button>
+                    </form>
+                </div>
+                <div class="card">
+                    <div class="price">
+                        <p>Cart :</p>
+                        <span>255.00 Pound</span>
+                    </div>
+                    <a href="mycart.html"><i class="fa-solid fa-bag-shopping"></i> <span
+                            class="count-in-card">2</span></a>
+
+
+                </div>
             </div>
         </div>
 
         <div class="header-bottom">
-           <div class="contanier">
-            <i id="open-side" class="fa-solid fa-bars"></i>
-            <ul class="nav-links">
-                    
-                <li><a href="index.html"> Home</a>
-                
-                </li>
+            <div class="contanier">
+                <i id="open-side" class="fa-solid fa-bars"></i>
+                <ul class="nav-links">
 
-                <li>
-                    <a href="features.html">Electrical Appliances</a>
+                    <li><a href="index.html"> Home</a>
 
-                    <div class="drobdwon">
-                        <ul><li><a href="smart-phones.html">Tablets</a></li></ul>
-                        <ul><li><a href="#">Televisions</a></li></ul>
-                        <ul><li><a href="#"> Smart Watches</a></li></ul>
-                        <!-- <ul><li><a href="#">Windows</a></li></ul> -->
-                    </div>
-                </li>
+                    </li>
 
-                <li>
-                    <a href="home-essentials.html">Home Essentials</a>
-                </li>
+                    <li>
+                        <a href="features.html">Electrical Appliances</a>
 
-                <li>
-                    <a href="smart-phones.html">Mobile Phones & Accessories</a>
-                </li>
-                <li><a href="index.html">Clothing</a></li>
+                        <div class="drobdwon">
+                            <ul>
+                                <li><a href="smart-phones.html">Tablets</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#">Televisions</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#"> Smart Watches</a></li>
+                            </ul>
+                            <!-- <ul><li><a href="#">Windows</a></li></ul> -->
+                        </div>
+                    </li>
 
-                <!-- <li><a href="index.html">Beauty Products</a></li> -->
-                <!-- <li><a href="index.html">Furnishings</a></li> -->
-              
+                    <li>
+                        <a href="home-essentials.html">Home Essentials</a>
+                    </li>
+
+                    <li>
+                        <a href="smart-phones.html">Mobile Phones & Accessories</a>
+                    </li>
+                    <li><a href="index.html">Clothing</a></li>
+
+                    <!-- <li><a href="index.html">Beauty Products</a></li> -->
+                    <!-- <li><a href="index.html">Furnishings</a></li> -->
 
 
-            </ul>
-           
 
-            
-           </div>
+                </ul>
+
+
+
+            </div>
         </div>
 
 
@@ -104,65 +113,57 @@
 
         <div class="box-sign-up">
             <div class="signup">
-                <form id="signup-form" onsubmit="submitSignup(event)">
+                <form id="signupForm" onsubmit="submitSignup(event)">
 
-                <!-- <form action=""> -->
+                    <!-- <form action=""> -->
 
-                    <label for="email">Name</label>
+                    <label for="fullname">Name</label>
                     <div class="inp">
                         <i class="fa-solid fa-envelope"></i>
-                        <input type="text" placeholder=" Enter your name">
+                        <input type="text" id="fullname" placeholder="Enter your name" required>
                     </div>
 
                     <label for="email">Email</label>
                     <div class="inp">
                         <i class="fa-solid fa-envelope"></i>
-                        <input type="email" placeholder="Enter your Email ">
+                        <input type="email" id="email" placeholder="Enter your Email" required>
                     </div>
 
-                    <label for="email">Phone Number</label>
+                    <label for="phone">Phone</label>
                     <div class="inp">
                         <i class="fa-solid fa-envelope"></i>
-                        <input type="number" placeholder="Enter your phone number">
+                        <input type="number" id="phone" placeholder="Enter your phone number" required>
                     </div>
 
-<!-- 
-                    <label for="email">Governorate</label>
+                    <label for="address">Address</label>
                     <div class="inp">
                         <i class="fa-solid fa-envelope"></i>
-                        <input type="text" placeholder="Enter your governorate">
-                    </div> -->
-
-
-                    <label for="email">Address</label>
-                    <div class="inp">
-                        <i class="fa-solid fa-envelope"></i>
-                        <input type="text" placeholder="Enter your address">
+                        <input type="text" id="address" placeholder="Enter your address" required>
                     </div>
 
                     <label for="password">Password</label>
                     <div class="inp">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Enter your password">
+                        <input type="password" id="password" placeholder="Enter your password" required>
                     </div>
-
 
                     <div class="check-box">
                         <div class="check">
-                            <input type="checkbox">
+                            <input type="checkbox" id="saveAccount">
+
                             <span>Save Account</span>
                         </div>
-                        
+
                     </div>
 
-                    <button>Create Account</button>
+                    <button type="submit">Create Account</button>
                 </form>
 
                 <span class="line-sign">or</span>
 
                 <div class="sign-soc">
-               
-                 
+
+
                     <div class="box">
                         <a class="btn" href="#"><img src="img/google.png" alt=""> Log in with Google Account</a>
                     </div>
@@ -173,30 +174,30 @@
         </div>
     </div>
     <button class="buyNow">Buy Now</button>
-    <div class="creatacountfast">Account Form</div>
-    
+    <a href="sign-in-page.html" class="createaccountfast">Create Account</a>
+
 
     <footer>
         <div class="contanier">
             <div class="top-footer">
                 <div class="row">
-                                    <img class="logo" src="img/Logo-img.png" alt="">
+                    <img class="logo" src="img/Logo-img.png" alt="">
                     <div class="hotline">
-                        
+
                         <div class="hotline-text">
-                            <h6>  24/7 Customer Service</h6>
+                            <h6> 24/7 Customer Service</h6>
                             <span>(+100) 123 456 7890</span>
                         </div>
                         <i class="fa-solid fa-headset"></i>
                     </div>
-                    
+
                 </div>
                 <div class="small-row">
                     <h6>Learn More About Us</h6>
                     <div class="links-row">
                         <a href="#"> <i class="fa-solid fa-angle-left"></i>About Shopnest</a>
                         <a href="#"><i class="fa-solid fa-angle-left"></i>Shipping & Delivery</a>
-                       
+
                     </div>
                 </div>
 
@@ -220,7 +221,7 @@
                     </div>
                 </div>
 
-        
+
 
             </div>
 
@@ -229,12 +230,12 @@
         <div class="bottom-footer">
             <div class="contanier">
                 <p>Copyright &copy; <span>Shopnest. </span>Powered by <span>Parinay</span></p>
-            <div class="payment">
-                <img src="img/payment-1.png" alt="">
-                <img src="img/payment-2.png" alt="">
-                <img src="img/payment-3.png" alt="">
-                <img src="img/payment-4.png" alt="">
-            </div>
+                <div class="payment">
+                    <img src="img/payment-1.png" alt="">
+                    <img src="img/payment-2.png" alt="">
+                    <img src="img/payment-3.png" alt="">
+                    <img src="img/payment-4.png" alt="">
+                </div>
             </div>
         </div>
     </footer>
@@ -248,43 +249,74 @@
 
     <script>
 
-//dom content loaded
+        //dom content loaded
 
-  document.addEventListener("DOMContentLoaded", function () {
-      let btnbuyNowF = document.querySelector('.buyNow');
-      let divcretAcBuyF = document.querySelector('.creatacountfast');
+        document.addEventListener("DOMContentLoaded", function () {
+            let btnbuyNowF = document.querySelector('.buyNow');
+            let divcretAcBuyF = document.querySelector('.createaccountfast');
 
-      if (btnbuyNowF && divcretAcBuyF) {
-          btnbuyNowF.onclick = () => {
-              divcretAcBuyF.classList.toggle('active');
-          };
-      } else {
-          console.error("Element(s) not found: Check .buyNow and .creatacountfast classes.");
-      }
-  });
+            if (btnbuyNowF && divcretAcBuyF) {
+                btnbuyNowF.onclick = () => {
+                    divcretAcBuyF.classList.toggle('active');
+                };
+            } else {
+                console.error("Element(s) not found: Check .buyNow and .createaccountfast classes.");
+            }
+        });
 
 
-const onSubmit=async (data) =>{
-  const userInfo={
-    fullname:data.fullname,
-    email:data.email,
-    password:data.password,
-}
-await axios.post("http://localhost:4001/user/signup",userInfo)
-.then((res)=>{
-  console.log(res.data)
-  if(res.data){
-    alert("signup successfully")
-  }
-})
-.catch((err)=>{
-  console.log(err)
-  alert("signup error:"+err)  
-})
-};
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const signupForm = document.getElementById("signupForm");
+
+            signupForm.addEventListener("submit", async function (event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Get input values
+                const fullname = document.getElementById("fullname").value.trim();
+                const email = document.getElementById("email").value.trim();
+                const phone = document.getElementById("phone").value.trim();
+                const address = document.getElementById("address").value.trim();
+                const password = document.getElementById("password").value.trim();
+
+                // 🚀 Debugging: Check if elements exist
+                if (!fullname || !email || !phone || !address || !password) {
+                    alert("⚠️ All fields are required!");
+                    return;
+                }
+
+                // Create user object
+                const signupData = { fullname, email, phone, address, password };
+                console.log("📩 Sending Signup Data:", signupData);
+
+                try {
+                    // Send data to backend API
+                    const response = await fetch("http://localhost:4001/user/signup", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(signupData),
+                    });
+
+                    const data = await response.json();
+                    console.log("✅ Signup Response:", data);
+
+                    if (response.ok) {
+                        alert("🎉 Signup successful! Redirecting to login...");
+                        window.location.href = "sign-in-page.html"; // Redirect after signup
+                    } else {
+                        alert(`❌ Error: ${data.message}`);
+                    }
+                } catch (error) {
+                    console.error("❌ Signup Failed:", error);
+                    alert("⚠️ Something went wrong. Please try again.");
+                }
+            });
+        });
 
     </script>
 
 
+
 </body>
+
 </html>

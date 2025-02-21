@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,83 +18,94 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="stylelogin.css">
 </head>
+
 <body class="menu-side-in-bag">
 
     <header>
 
         <div class="header-top">
             <div class="contanier">
-             <p>"Welcome to Shopnest" </p>
-             <div class="link-top-heder">
-                 <a href="#">My Account</a>
-                 <a href="#">My Wishlist</a>
-                                     <a href="/sign-in-page.html">Sign In</a>
-                 <a href="#">Compare</a>
-             </div>
-         </div>
-           </div>
-
-           <div class="header-info">
-            <div class="contanier">
-                                <img class="logo" src="img/Logo-img.png" alt="">
-            
-            <div class="search-bar">
-                <form action="">
-                    <input type="search" placeholder="Search for your request...">
-                    <button class="btn-srch">Search</button>
-                </form>
-            </div>
-            <div class="card">
-                <div class="price">
-                    <p>Cart :</p>
-                    <span>255.00 Pound</span>
+                <p>"Welcome to Shopnest" </p>
+                <div class="link-top-heder">
+                    <a href="#">My Account</a>
+                    <a href="#">My Wishlist</a>
+                    <a href="/sign-in-page.html">Sign In</a>
+                    <a href="#">Compare</a>
                 </div>
-                <a href="mycart.html"><i class="fa-solid fa-bag-shopping"></i> <span class="count-in-card">2</span></a>
-
-                
             </div>
+        </div>
+
+        <div class="header-info">
+            <div class="contanier">
+                <img class="logo" src="img/Logo-img.png" alt="">
+
+                <div class="search-bar">
+                    <form action="">
+                        <input type="search" placeholder="Search for your request...">
+                        <button class="btn-srch">Search</button>
+                    </form>
+                </div>
+                <div class="card">
+                    <div class="price">
+                        <p>Cart :</p>
+                        <span>255.00 Pound</span>
+                    </div>
+                    <a href="mycart.html"><i class="fa-solid fa-bag-shopping"></i> <span
+                            class="count-in-card">2</span></a>
+
+
+                </div>
             </div>
         </div>
 
         <div class="header-bottom">
-           <div class="contanier">
-            <i id="open-side" class="fa-solid fa-bars"></i>
-            <ul class="nav-links">
-                    
-                <li><a href="index.html"> Home</a>
-                
-                </li>
+            <div class="contanier">
+                <i id="open-side" class="fa-solid fa-bars"></i>
+                <ul class="nav-links">
 
-                <li>
-                    <a href="features.html">Electrical Appliances </a>
+                    <li><a href="index.html"> Home</a>
 
-                    <div class="drobdwon">
-                        <ul><li><a href="smart-phones.html"> Tablets</a></li></ul>
-                        <ul><li><a href="#">Televisions</a></li></ul>
-                        <ul><li><a href="#">Headphones</a></li></ul>
-                        <ul><li><a href="#">Smart Watches</a></li></ul>
-                    </div>
-                </li>
+                    </li>
 
-                <li>
-                    <a href="home-essentials.html">  Home Essentials</a>
-                </li>
+                    <li>
+                        <a href="features.html">Electrical Appliances </a>
 
-                <li>
-                    <a href="smart-phones.html"> Mobile Phones & Accessories </a>
-                </li>
-                <li><a href="index.html"> Clothing </a></li>
+                        <div class="drobdwon">
+                            <ul>
+                                <li><a href="smart-phones.html"> Tablets</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#">Televisions</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#">Headphones</a></li>
+                            </ul>
+                            <ul>
+                                <li><a href="#">Smart Watches</a></li>
+                            </ul>
+                        </div>
+                    </li>
 
-                <!-- <li><a href="index.html"> Beauty Products </a></li>
+                    <li>
+                        <a href="home-essentials.html"> Home Essentials</a>
+                    </li>
+
+                    <li>
+                        <a href="smart-phones.html"> Mobile Phones & Accessories </a>
+                    </li>
+                    <li><a href="index.html"> Clothing </a></li>
+
+                    <!-- <li><a href="index.html"> Beauty Products </a></li>
                 <li><a href="index.html"> Furnishings</a></li>
                -->
 
 
-            </ul>
-            <a href="sign-up-page.html" class="sign-in-btn"><i class="fa-solid fa-user-plus"></i> Create Account  </a>
+                </ul>
+                <a href="sign-up-page.html" class="sign-in-btn"><i class="fa-solid fa-user-plus"></i> Create Account
+                </a>
 
-            
-           </div>
+
+            </div>
         </div>
 
 
@@ -105,20 +117,21 @@
         <div class="box-sign-up">
             <div class="signup">
 
-                <form action="">
+                <form id="loginForm">  <!-- Ensure ID matches in JavaScript -->
 
                     <label for="email">Email</label>
                     <div class="inp">
                         <i class="fa-solid fa-envelope"></i>
-                        <input type="email" placeholder="Enter your email ">
+                        <input type="email" id="email" placeholder="Enter your email" required>
                     </div>
 
                     <label for="password">Password</label>
-                    <div class="inp">
-                        <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Enter your Password  ">
+                    <div class="inp"
+                        style="display: flex; align-items: center; border: 1px solid #ccc; padding: 5px; border-radius: 5px;">
+                        <input type="password" id="password" placeholder="Enter your Password"
+                            style="flex: 1; border: none; outline: none;">
+                        <i class="fa-solid fa-eye" id="togglePassword" style="cursor: pointer; padding: 5px;"></i>
                     </div>
-
                     <div class="check-box">
                         <div class="check">
                             <input type="checkbox">
@@ -127,7 +140,7 @@
                         <a href="#" class="forg">Forgot Password?</a>
                     </div>
 
-                    <button>Login</button>
+                    <button type="submit">Login</button>
                 </form>
 
                 <span class="line-sign">or</span>
@@ -136,11 +149,11 @@
                     <div class="box">
                         <a class="btn" href="#"><img src="img/google.png" alt=""> Log in with Google Account</a>
                     </div>
+                </div>
+                <p class="creat-ac">Don't have an account? <a href="/sign-up-page.html">Create an Account</a>
+                    </a></p>
             </div>
-            <p class="creat-ac">Don't have an account? <a href="/sign-up-page.html">Create an Account</a>
-            </a></p>
         </div>
-    </div>
     </div>
 
 
@@ -148,23 +161,23 @@
         <div class="contanier">
             <div class="top-footer">
                 <div class="row">
-                                    <img class="logo" src="img/Logo-img.png" alt="">
+                    <img class="logo" src="img/Logo-img.png" alt="">
                     <div class="hotline">
-                        
+
                         <div class="hotline-text">
                             <h6> 24/7 Custoomer Service</h6>
                             <span>(+100) 123 456 7890</span>
                         </div>
                         <i class="fa-solid fa-headset"></i>
                     </div>
-                    
+
                 </div>
                 <div class="small-row">
                     <h6>Learn More About Us</h6>
                     <div class="links-row">
                         <a href="#"> <i class="fa-solid fa-angle-left"></i>About Shopnest</a>
                         <a href="#"><i class="fa-solid fa-angle-left"></i>Shipping & Delivery</a>
-                       
+
                     </div>
                 </div>
 
@@ -187,22 +200,19 @@
                         <a href="#"><i class="fa-solid fa-angle-left"></i>Terms & Conditions</a>
                     </div>
                 </div>
-
-        
-
             </div>
 
         </div>
 
         <div class="bottom-footer">
             <div class="contanier">
-                <p>Copyright &copy; <span>Topico. </span>Powered by <span>Parinay Raya</span></p>
-            <div class="payment">
-                <img src="img/payment-1.png" alt="">
-                <img src="img/payment-2.png" alt="">
-                <img src="img/payment-3.png" alt="">
-                <img src="img/payment-4.png" alt="">
-            </div>
+                <p>Copyright &copy; <span>Shopnest. </span>Powered by <span>Parinay Raya</span></p>
+                <div class="payment">
+                    <img src="img/payment-1.png" alt="">
+                    <img src="img/payment-2.png" alt="">
+                    <img src="img/payment-3.png" alt="">
+                    <img src="img/payment-4.png" alt="">
+                </div>
             </div>
         </div>
     </footer>
@@ -212,5 +222,85 @@
 
     <!-- Linke File JS -->
     <script src="main.js"></script>
+    <script>
+        document.getElementById("togglePassword").addEventListener("click", function () {
+            const passwordInput = document.getElementById("password");
+
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                this.classList.remove("fa-eye");
+                this.classList.add("fa-eye-slash"); // 👁️➡️🙈
+            } else {
+                passwordInput.type = "password";
+                this.classList.remove("fa-eye-slash");
+                this.classList.add("fa-eye"); // 🙈➡️👁️
+            }
+        });
+
+        //login user functionality
+        document.addEventListener("DOMContentLoaded", function () {
+    const loginForm = document.getElementById("loginForm");
+
+    if (loginForm) {
+        loginForm.addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+
+            if (!email || !password) {
+                alert("⚠️ Please enter email and password.");
+                return;
+            }
+
+            try {
+                const response = await fetch("http://localhost:4001/user/login", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email, password }),
+                });
+
+                const data = await response.json();
+                console.log("✅ Login Response:", data);
+
+                if (response.ok) {
+                    alert("🎉 Login successful!");
+                    localStorage.setItem("userToken", data.token); // Store Token
+                    window.location.href = "index.html"; // Redirect to dashboard
+                } else {
+                    alert(`❌ Error: ${data.message}`);
+                }
+            } catch (error) {
+                console.error("❌ Login Failed:", error);
+                alert("⚠️ Something went wrong. Please try again.");
+            }
+        });
+    }
+});
+
+
+
+        //logout functionality
+    //     document.addEventListener("DOMContentLoaded", function () {
+    //         const token = localStorage.getItem("authToken");
+    //         if (!token) {
+    //             alert("Please log in first!");
+    //             window.location.href = "login.html";
+    //         }
+    //     });
+    // </script>
+
+    // <h1>Welcome to Dashboard!</h1>
+    // <button onclick="logout()">Logout</button>
+
+    // <script>
+    //     function logout() {
+    //         localStorage.removeItem("authToken");
+    //         window.location.href = "login.html";
+    //     }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </body>
+
 </html>

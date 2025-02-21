@@ -10,9 +10,9 @@ const userSchema =mongoose.Schema({
         unique:true
 
     },
-    phoneNumber:{
-        type:String,
-        required:false
+    phone:{
+        type:Number,
+        required:true
     },
     address:{
         type:String,

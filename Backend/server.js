@@ -9,6 +9,9 @@ import shop from "./model/shop.model.js"; // Shop model import karna mat bhoolna
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true })); // ✅ Required for parsing form data
+app.use("/user", userRoute);
+
 
 dotenv.config();
 
