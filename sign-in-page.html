@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>TOPICO</title>
+    <title>Shopnest</title>
 
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="swiperJs/swiper-bundle.min.css" />
@@ -27,9 +27,10 @@
             <div class="contanier">
                 <p>"Welcome to Shopnest" </p>
                 <div class="link-top-heder">
-                    <a href="#">My Account</a>
+                    <a href="/myaccount.html" >My Account</a>
+                    <a href="/sign-in-page.html" id="authLink">Sign In</a>
                     <a href="#">My Wishlist</a>
-                    <a href="/sign-in-page.html">Sign In</a>
+                    <!-- <a href="/sign-in-page.html">Sign In</a> -->
                     <a href="#">Compare</a>
                 </div>
             </div>
@@ -265,7 +266,7 @@
 
                 if (response.ok) {
                     alert("🎉 Login successful!");
-                    localStorage.setItem("userToken", data.token); // Store Token
+                    localStorage.setItem("user", JSON.stringify({ email, token: data.token }));
                     window.location.href = "index.html"; // Redirect to dashboard
                 } else {
                     alert(`❌ Error: ${data.message}`);
@@ -279,27 +280,29 @@
 });
 
 
+document.addEventListener("DOMContentLoaded", function () {
+    const authLink = document.getElementById("authLink");
+    const myAccountLink = document.getElementById("myAccountLink");
 
-        //logout functionality
-    //     document.addEventListener("DOMContentLoaded", function () {
-    //         const token = localStorage.getItem("authToken");
-    //         if (!token) {
-    //             alert("Please log in first!");
-    //             window.location.href = "login.html";
-    //         }
-    //     });
-    // </script>
+    // Check if user is logged in
+    const user = JSON.parse(localStorage.getItem("user"));
 
-    // <h1>Welcome to Dashboard!</h1>
-    // <button onclick="logout()">Logout</button>
+    if (user) {
+        authLink.textContent = "Logout";
+        authLink.href = "#"; // Prevent navigating to sign-in page
+        authLink.addEventListener("click", function () {
+            localStorage.removeItem("user"); // Clear user data
+            window.location.reload(); // Refresh to update UI
+        });
 
-    // <script>
-    //     function logout() {
-    //         localStorage.removeItem("authToken");
-    //         window.location.href = "login.html";
-    //     }
-    </script>
+        // Redirect "My Account" to myaccount.html
+        myAccountLink.href = "/myaccount.html";
+    }
+});
+
+   </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="navbar.js"></script>
 
 </body>
 

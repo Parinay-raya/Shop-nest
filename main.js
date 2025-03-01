@@ -107,3 +107,20 @@ if (btnbuyNowF && divcretAcBuyF) {
   console.error("Element(s) not found: Check .buyNow and .creatacountfast classes.");
 }
 
+//sending mail to new subscriber
+document.getElementById("subscribe-form").addEventListener("submit", async function(event) {
+  event.preventDefault();
+  const email = document.getElementById("email").value;
+
+  const response = await fetch("http://localhost:5000/api/subscribe", { 
+
+      method: "POST",
+      headers: {
+          "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email })
+  });
+
+  const data = await response.json();
+  alert(data.message);
+}); 
