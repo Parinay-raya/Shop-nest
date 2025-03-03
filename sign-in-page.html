@@ -255,26 +255,38 @@
             }
 
             try {
-                const response = await fetch("http://localhost:4001/user/login", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ email, password }),
-                });
+    const response = await fetch("http://localhost:5000/user/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+    });
 
-                const data = await response.json();
-                console.log("✅ Login Response:", data);
+    const data = await response.json();
+    console.log("✅ Login Response:", data);
 
-                if (response.ok) {
-                    alert("🎉 Login successful!");
-                    localStorage.setItem("user", JSON.stringify({ email, token: data.token }));
-                    window.location.href = "index.html"; // Redirect to dashboard
-                } else {
-                    alert(`❌ Error: ${data.message}`);
-                }
-            } catch (error) {
-                console.error("❌ Login Failed:", error);
-                alert("⚠️ Something went wrong. Please try again.");
-            }
+    if (response.ok) {
+        alert("🎉 Login successful!");
+
+        // Ensure fullname exists before storing in localStorage
+        if (data.fullname) {
+            localStorage.setItem("user", JSON.stringify({ 
+                fullname: data.fullname, 
+                email: data.email, 
+                token: data.token 
+            }));
+        } else {
+            console.warn("⚠️ Fullname is missing in response!");
+        }
+
+        window.location.href = "index.html"; // Redirect to dashboard
+    } else {
+        alert(`❌ Error: ${data.message}`);
+    }
+} catch (error) {
+    console.error("❌ Login Failed:", error);
+    alert("⚠️ Something went wrong. Please try again.");
+}
+
         });
     }
 });

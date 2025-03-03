@@ -291,7 +291,7 @@
 
                 try {
                     // Send data to backend API
-                    const response = await fetch("http://localhost:4001/user/signup", {
+                    const response = await fetch("http://localhost:5000/user/signup", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify(signupData),

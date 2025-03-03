@@ -1,5 +1,7 @@
 import User from "../model/usermodel.js";
-import bcryptjs from "bcryptjs";
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+
 
 export const signup = async (req, res) => {
     try {
@@ -32,31 +34,37 @@ export const signup = async (req, res) => {
 // Login function
 export const login = async (req, res) => {
     try {
-        const { email, password } = req.body;
+        const { email, password } = req.body; // Get data from request body
+
+        if (!email || !password) {
+            return res.status(400).json({ message: "Missing email or password" });
+        }
+
+        // Authenticate user (replace this with actual database check)
         const user = await User.findOne({ email });
 
-        // Ensure user exists before checking password
         if (!user) {
-            return res.status(400).json({ message: "Invalid username or password" });
+            return res.status(401).json({ message: "User not found" });
         }
 
-        // Compare hashed password
-        const isMatch = await bcryptjs.compare(password, user.password);
+        const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            return res.status(400).json({ message: "Invalid username or password" });
+            return res.status(401).json({ message: "Invalid password" });
         }
 
-        res.status(200).json({
-            message: "Login successful",
-            user: {
-                _id: user.id,
-                fullname: user.fullname,
-                email: user.email,
-                phone: user.phone,
-            },
+        // Generate JWT token
+        const token = jwt.sign({ id: user._id, email: user.email }, "your_secret_key", { expiresIn: "1h" });
+
+        console.log("✅ Login successful:", { fullname: user.fullname, email: user.email });
+
+        return res.status(200).json({
+            fullname: user.fullname,
+            email: user.email,
+            token: token
         });
+
     } catch (error) {
-        console.log("Error" + error.message);
-        res.status(500).json({ message: "Internal server error" });
+        console.error("❌ Login Failed:", error);
+        return res.status(500).json({ message: "⚠️ Something went wrong. Please try again." });
     }
 };

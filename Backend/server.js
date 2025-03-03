@@ -11,7 +11,7 @@ import { subscriptionRoutes } from "./route/subscription.route.js"; // ✅ Impor
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 4001;
+const PORT = process.env.PORT || 5001;
 const MongoDBURI = process.env.MongoDBURI;
 
 // ✅ Middleware setup
