@@ -888,7 +888,7 @@ header select option {
 /* footer */
 
 footer {
-    background-color: #394150;
+    background-color: #6f7f9b;
 }
 
 footer .top-footer {
@@ -976,7 +976,7 @@ footer .payment img:hover {
 }
 
 footer .bottom-footer {
-    background-color: #202935;
+    background-color: #536b8b;
 }
 
 footer .bottom-footer .contanier {
@@ -2402,4 +2402,24 @@ footer .bottom-footer .contanier p span {
     .contanier .signup {
         width: 90%;
     }
+}
+
+.hidden {
+    display: none;
+}
+.qr-container {
+    margin-top: 20px;
+}
+.button {
+    background-color: #008CBA; /* Blue Color */
+    color: white; /* Text Color */
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #005f73; /* Darker Blue on Hover */
 }

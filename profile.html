@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Account</title>
+</head>
+<body>
+    <h2>My Profile</h2>
+    <form id="profileForm">
+        <input type="text" id="name" placeholder="Name" required><br>
+        <input type="email" id="email" placeholder="Email" required><br>
+        <input type="text" id="phone" placeholder="Phone" required><br>
+        <button type="submit">Save</button>
+    </form>
+
+    <div id="profileData"></div>
+
+    <script>
+        document.getElementById("profileForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+
+            const response = await fetch("/profile", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, email, phone }),
+            });
+
+            if (response.ok) {
+                alert("Profile saved!");
+                loadProfile();
+            }
+        });
+
+        async function loadProfile() {
+            const response = await fetch("/profile");
+            const profile = await response.json();
+            if (profile) {
+                document.getElementById("profileData").innerHTML = `
+                    <p>Name: ${profile.name}</p>
+                    <p>Email: ${profile.email}</p>
+                    <p>Phone: ${profile.phone}</p>
+                    <button onclick="editProfile('${profile._id}')">Edit</button>
+                    <button onclick="deleteProfile('${profile._id}')">Delete</button>
+                `;
+            }
+        }
+
+        async function editProfile(id) {
+            const response = await fetch(`/profile/${id}`);
+            const profile = await response.json();
+            document.getElementById("name").value = profile.name;
+            document.getElementById("email").value = profile.email;
+            document.getElementById("phone").value = profile.phone;
+        }
+
+        async function deleteProfile(id) {
+            if (confirm("Are you sure?")) {
+                await fetch(`/profile/${id}`, { method: "DELETE" });
+                alert("Profile deleted!");
+                loadProfile();
+            }
+        }
+
+        loadProfile();
+    </script>
+</body>
+</html>

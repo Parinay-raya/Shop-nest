@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopNest Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: #c9eff6;
+            color: white;
+            position: fixed;
+        }
+
+        .sidebar a {
+            color: rgb(7, 7, 7);
+            text-decoration: none;
+            display: block;
+            padding: 15px;
+        }
+
+        .sidebar a:hover {
+            background: #88e5f6;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <header>
+        <div class="header-top">
+            <div class="contanier">
+                <p> "Welcome to Shopnest" </p>
+                <div class="link-top-heder">
+                    <a href="#">My Account</a>
+                    <a href="#">My Wishlist</a>
+                    <a href="/sign-in-page.html" id="authLink">Sign In</a>
+                    <a href="#">Compare</a>
+                </div>
+            </div>
+        </div>
+    </header> -->
+    <!-- Sidebar -->
+    <div class="sidebar p-3 text-center">
+        <a href="../index.html">
+            <img src="https://res.cloudinary.com/dqznjnjv9/image/upload/v1740904793/Logo-img_p5jqtf.png"
+                alt="ShopNest Logo" class="img-fluid mb-3" style="max-width: 150px;">
+        </a> <a href="myaccount.html"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="#"><i class="fas fa-box"></i> My Orders</a>
+        <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
+        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+        <a href="#" id="logoutLink"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container p-5 d-flex justify-content-end">
+        <div class="card shadow p-4" style="width: 80%; min-width: 400px;">
+            <h2 class="mb-4 text-primary text-center">Profile Settings</h2>
+            <div class="text-center">
+                <img src="https://res.cloudinary.com/dqznjnjv9/image/upload/v1740904684/samples/smile.jpg" alt="Profile Picture"
+                style="width: 20%;"
+                    class="rounded-circle border border-danger" id="profilePic">
+                <input type="file" id="uploadPic" class="form-control mt-2 w-50 mx-auto">
+            </div>
+            <div class="mt-4">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Enter your name">
+
+                <label class="form-label mt-3">Email Address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter your email">
+
+                <label class="form-label mt-3">Phone Number</label>
+                <input type="text" class="form-control" id="phone" placeholder="Enter your phone number">
+
+                <label class="form-label mt-3">Address</label>
+                <textarea class="form-control" id="address" placeholder="Enter your address"></textarea>
+            </div>
+            <button class="btn btn-primary mt-4 w-100" onclick="saveProfile()">Save Changes</button>
+        </div>
+    </div>
+
+    <script>
+        function saveProfile() {
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            let phone = document.getElementById('phone').value;
+            let address = document.getElementById('address').value;
+            alert("Profile Updated:\n" + name + "\n" + email + "\n" + phone + "\n" + address);
+        }
+    </script>
+</body>
+
+</html>

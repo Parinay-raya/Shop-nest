@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.reload(); // Refresh page to update UI
         });
 
-        // Change "My Account" link to redirect to myaccount.html
-        myAccountLink.href = "/myaccount.html";
+        // Change "My Account" link to redirect to ./Dashboard/myaccount.html
+        myAccountLink.href = "/./Dashboard/myaccount.html";
     }
 });
