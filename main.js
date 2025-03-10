@@ -78,7 +78,7 @@ let btnCloseSide = document.getElementById("btn-close");
 let sideBar = document.getElementById("side-bar");
 let btnOpenSide = document.getElementById("open-side");
 
-const apiurl=process.env.BACKEND_URL;
+// const apiurl=process.env.BACKEND_URL;
 
 if (btnOpenSide && sideBar) {
   btnOpenSide.onclick = () => sideBar.classList.add('active');
@@ -115,7 +115,7 @@ document.getElementById("subscribe-form").addEventListener("submit", async funct
   const email = document.getElementById("email").value;
 
   try {
-    const response = await fetch(`${apiurl}/api/subscribe`, { 
+    const response = await fetch("https://shop-nest-0tcz.onrender.com/api/subscribe", { 
       method: "POST",
       headers: {
           "Content-Type": "application/json"
