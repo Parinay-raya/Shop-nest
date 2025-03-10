@@ -78,6 +78,8 @@ let btnCloseSide = document.getElementById("btn-close");
 let sideBar = document.getElementById("side-bar");
 let btnOpenSide = document.getElementById("open-side");
 
+const apiurl=process.env.BACKEND_URL;
+
 if (btnOpenSide && sideBar) {
   btnOpenSide.onclick = () => sideBar.classList.add('active');
 }
@@ -107,20 +109,30 @@ if (btnbuyNowF && divcretAcBuyF) {
   console.error("Element(s) not found: Check .buyNow and .creatacountfast classes.");
 }
 
-//sending mail to new subscriber
+// Sending mail to new subscriber
 document.getElementById("subscribe-form").addEventListener("submit", async function(event) {
   event.preventDefault();
   const email = document.getElementById("email").value;
 
-  const response = await fetch("http://localhost:5000/api/subscribe", { 
-
+  try {
+    const response = await fetch(`${apiurl}/api/subscribe`, { 
       method: "POST",
       headers: {
           "Content-Type": "application/json"
       },
       body: JSON.stringify({ email })
   });
+  
 
-  const data = await response.json();
-  alert(data.message);
-}); 
+    const data = await response.json();
+
+    if (response.status === 409) {
+        alert("You are already subscribed!");
+    } else {
+        alert("You are already subscribed!",data.message);
+    }
+  } catch (error) {
+    console.error("Error subscribing:", error);
+    alert("Something went wrong. Please try again.");
+  }
+});  
