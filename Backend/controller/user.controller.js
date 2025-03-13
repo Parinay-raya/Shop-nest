@@ -68,7 +68,8 @@ export const login = async (req, res) => {
         });
 
     } catch (error) {
-        console.error("❌ Login Failed:", error);
+        console.error("❌ Login Failed:", error.message, error.stack);
         return res.status(500).json({ message: "⚠️ Something went wrong. Please try again." });
     }
+    
 };
