@@ -362,6 +362,8 @@ header .header-top .contanier {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    scroll-behavior: smooth;
+
 }
 
 .header-top .link-top-heder a {
@@ -369,7 +371,6 @@ header .header-top .contanier {
     line-height: 45px;
     padding: 0 20px;
     border-right: var(--border);
-    scroll-behavior: smooth;
     
     
 }
