@@ -362,6 +362,7 @@ header .header-top .contanier {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    scroll-behavior: smooth;
 
 }
 
@@ -421,9 +422,6 @@ header .header-info .search-bar .btn-srch {
     color: #fff;
     cursor: pointer;
     margin-left: 75%;
-}
-html {
-    scroll-behavior: smooth;
 }
 
 
