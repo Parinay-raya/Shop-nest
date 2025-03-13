@@ -13,6 +13,13 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5001;
 const MongoDBURI = process.env.MongoDBURI;
+// Enable CORS with specific origin
+app.use(cors({
+  origin: "https://shopnestweb.netlify.app", // Allow only your frontend
+  methods: "GET,POST,PUT,DELETE",
+  allowedHeaders: "Content-Type,Authorization"
+}));
+
 
 // ✅ Middleware setup
 app.use(cors());

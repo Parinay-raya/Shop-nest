@@ -40,8 +40,8 @@ export const login = async (req, res) => {
             return res.status(400).json({ message: "Missing email or password" });
         }
 
-        // Authenticate user (replace this with actual database check)
-        const user = await User.findOne({ email });
+        // Authenticate user
+        const user = await User.findOne({ email }).lean(); // Use .lean() for better performance
 
         if (!user) {
             return res.status(401).json({ message: "User not found" });
@@ -52,8 +52,12 @@ export const login = async (req, res) => {
             return res.status(401).json({ message: "Invalid password" });
         }
 
-        // Generate JWT token
-        const token = jwt.sign({ id: user._id, email: user.email }, "your_secret_key", { expiresIn: "1h" });
+        // Generate JWT token with a secure secret key
+        const token = jwt.sign(
+            { id: user._id, email: user.email },
+            process.env.JWT_SECRET || "default_secret", // Use env variable
+            { expiresIn: "1h" }
+        );
 
         console.log("✅ Login successful:", { fullname: user.fullname, email: user.email });
 
