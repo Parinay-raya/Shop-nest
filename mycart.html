@@ -15,9 +15,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
+    <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 
     <!-- Link File CSS -->
     <link rel="stylesheet" href="style.css">
+    <script src="https://js.stripe.com/v3/"></script>
+
 </head>
 
 <body class="menu-side-in-bag">
@@ -297,20 +300,29 @@
                             <label for="cod">Cash on Delivery</label>
                         </div>
 
-                        <div class="info-buy pad-box">
-                            <input type="radio" name="payment" id="phonepe">
-                            <label for="phonepe">Pay with PhonePe</label>
-                        </div>
+                        
 
-                        <div class="info-buy pad-box">
+
+                        <div class="checkout-section">
+                            <h2>Complete Your Purchase</h2>
+                            <div class="info-buy pad-box">
+                                <input type="radio" name="payment" id="phonepe">
+                                <label for="phonepe">Pay with netbanking</label>
+                            </div>
+                            <stripe-buy-button
+                              buy-button-id="buy_btn_1R7XhnLx6ihkDclysL3WJL0O"
+                              publishable-key="pk_test_51R5RvoLx6ihkDclyuLQWd5WUMwgPxaEjShyHIDf0gYHSnKX1B9FQ20lYz1zQ1etGbj4AA7U0KpCO9weoXpctnmxN00l3Dt3OZj">
+                            </stripe-buy-button>
+                        </div>
+                        <!-- <div class="info-buy pad-box">
                             <input type="radio" name="payment" id="netbanking">
                             <label for="netbanking">Net Banking</label>
                         </div>
 
-                        <button class="button" id="payNow">Proceed to Payment</button>
-                        <button id="checkout-button">Checkout</button>
-
-                    </div>
+                        <button class="button" id="payNow">Proceed to Payment</button> -->
+                        </div>
+                   
+                    
 
                     <div id="qrContainer" class="hidden">
                         <h3>Scan to Pay</h3>
@@ -406,8 +418,6 @@
 
     <!-- Linke File JS -->
     <script src="main.js"></script>
-    <script src="https://js.stripe.com/v3/"></script>
-
     <script>
 
 document.getElementById("payNow").addEventListener("click", function () {
@@ -419,11 +429,15 @@ document.getElementById("payNow").addEventListener("click", function () {
 
             // QR code generate karega (yahan tum payment URL ya UPI ID dal sakte ho)
             new QRCode(document.getElementById("qrcode"), {
-                text: "upi://pay?pa=8103234242@ybl&pn=Parinay Raya&mc=&tid=&tr=&tn=Payment&&cu=INR", 
+                text: "upi://pay?pa=test@upi&pn=Parinay Raya&mc=&tid=&tr=&tn=Payment&&cu=INR", 
                 width: 200,
                 height: 200
             });
         });
+
+
+
+  
     </script>
 </body>
 

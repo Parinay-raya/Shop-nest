@@ -4,70 +4,42 @@ import dotenv from "dotenv";
 import cors from "cors";
 import shoproute from "./route/shop.route.js";
 import userRoute from "./route/user.route.js";
-import { subscriptionRoutes } from "./route/subscription.route.js"; // ✅ Import as named export
-
-// import shop from "./model/shop.model.js"; // Shop model import karna mat bhoolna
+import { subscriptionRoutes } from "./route/subscription.route.js"; // Ensure named export
 
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5001;
 const MongoDBURI = process.env.MongoDBURI;
-// Enable CORS with specific origin
+
+// ✅ Ensure MongoDBURI is present
+if (!MongoDBURI) {
+  console.error("❌ MongoDBURI is missing in .env file!");
+  process.exit(1);
+}
+
+// ✅ Enable CORS (Keep only one instance)
 app.use(cors({
   origin: "https://shopnestweb.netlify.app", // Allow only your frontend
   methods: "GET,POST,PUT,DELETE",
   allowedHeaders: "Content-Type,Authorization"
 }));
 
-
 // ✅ Middleware setup
-app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true })); // ✅ Required for parsing form data
+app.use(express.urlencoded({ extended: true })); // Parse form data
+
 
 // ✅ Connect to MongoDB using async/await
 async function connectDB() {
   try {
     await mongoose.connect(MongoDBURI);
     console.log("✅ Connected to MongoDB");
-
-    // ✅ Run seed data insertion only after connection is established
-    // await insertData();
   } catch (error) {
     console.error("❌ MongoDB Connection Error:", error);
+    process.exit(1);
   }
 }
-
-// // ✅ Function to insert data
-// const insertData = async () => {
-//   try {
-//     await shop.deleteMany(); // Purana data delete karega
-//     await shop.insertMany([
-//       {
-//         name: "T-Shirt",
-//         category: "Clothing",
-//         price: 499,
-//         inStock: true,
-//         description: "High-quality cotton t-shirt",
-//         imageUrl: "https://via.placeholder.com/150",
-//         phoneNumber: "9123456789"
-//       },
-//       {
-//         name: "Smartphone",
-//         category: "Electronics",
-//         price: 14999,
-//         inStock: false,
-//         description: "Latest model with great features",
-//         imageUrl: "https://via.placeholder.com/150",
-//         phoneNumber: "9876543210" 
-//       },
-//     ]);
-//     console.log("✅ Data inserted successfully!");
-//   } catch (error) {
-//     console.error("❌ Error inserting data:", error);
-//   }
-// };
 
 // ✅ Call the database connection function
 connectDB();
